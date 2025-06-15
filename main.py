@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 from kivy.app import App
 from kivy.graphics.texture import Texture
+from kivy.lang import Builder
 from kivy.uix.filechooser import FileChooserIconView
 
 class FaceApp(App):
@@ -15,7 +16,8 @@ class FaceApp(App):
         self.age = tf.lite.Interpreter(model_path='models/age_gender.tflite')
         self.age.allocate_tensors()
 
-        return self.root
+        # Carga la interfaz definida en face.kv y establce la raiz
+        return Builder.load_file('face.kv')
 
     def analizar_frame(self):
         cam = self.root.ids.cam
