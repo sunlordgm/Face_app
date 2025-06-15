@@ -1,0 +1,18 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    Camera:
+        id: cam
+        resolution: (640, 480)
+        play: True
+
+    BoxLayout:
+        size_hint_y: 0.2
+        spacing: dp(10)
+        padding: dp(10)
+        Button:
+            text: 'Analizar cámara'
+            on_press: app.analizar_frame()
+        Button:
+            text: 'Cargar imagen'
+            on_press: app.cargar_imagen()
